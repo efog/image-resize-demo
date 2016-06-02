@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <title>Hello</title>
+    <link rel="stylesheet" href="/bower/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.css" />
+    <style>
+        .body-content {}
+    </style>
+</head>
+
+<body>
+    <header>
+    </header>
+    <div class="body-content container" ng-app="app">
+        <div class="jumbotron">
+            <h1>Hello</h1></div>
+        <div class="app col-lg-12 col-sm-12 col-md-12" ng-controller="imgController as vm">
+            <h2>Upload original image here:</h2>
+            <div class="col-sm-12">
+                <input type="file" onchange="angular.element(this).scope().fileNameChanged(this)" ng-model="vm.originalImage" accept="image/*">
+            </div>
+            <img id="originalImage" ng-src="{{vm.originalImageData}}" />
+        </div>
+        <div class="app col-lg-12 col-sm-12 col-md-12" ng-controller="imgController as vm">
+            <h2>Scale image here:</h2>
+            <input type="number" ng-model="vm.scale" ng-change="vm.scaleImage()" />%
+            <div class="col-sm-12">
+                <canvas id="canvasScaledImageCanvas"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="/bower/jquery/dist/jquery.js"></script>
+    <script src="/bower/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/bower/angular/angular.js"></script>
+    <script src="/app.js"></script>
+</body>
+
+</html>
